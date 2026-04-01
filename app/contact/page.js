@@ -31,13 +31,14 @@ export default function ContactPage() {
       }}>
         <div className="container" style={{
           maxWidth: '1440px',
-          display: 'grid',
-          gridTemplateColumns: '7fr 5fr',
+          display: 'flex',
+          flexWrap: 'wrap',
           gap: 'var(--space-12)',
           alignItems: 'start',
         }}>
           {/* Form */}
           <div style={{
+            flex: '1 1 500px',
             background: 'var(--surface-container-low)',
             padding: 'var(--space-12)',
           }}>
@@ -201,7 +202,7 @@ export default function ContactPage() {
           </div>
 
           {/* Sidebar */}
-          <div style={{ display: 'flex', flexDirection: 'column', gap: 'var(--space-8)' }}>
+          <div style={{ flex: '1 1 300px', display: 'flex', flexDirection: 'column', gap: 'var(--space-8)' }}>
             {/* Address card */}
             <div style={{
               background: 'rgba(32, 31, 31, 0.7)',

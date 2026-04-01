@@ -132,14 +132,15 @@ export default function ReferencesPage() {
         <div style={{
           maxWidth: '1440px',
           margin: '0 auto',
-          display: 'grid',
-          gridTemplateColumns: 'repeat(4, 1fr)',
+          display: 'flex',
+          flexWrap: 'wrap',
           gap: 'var(--space-6)',
         }}>
           {filtered.map((brand) => (
             <div
               key={brand.name}
               style={{
+                flex: '1 1 280px',
                 background: 'var(--surface-container-low)',
                 padding: 'var(--space-10)',
                 borderTop: '2px solid transparent',

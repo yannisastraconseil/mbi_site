@@ -60,8 +60,8 @@ export default function EntreprisePage() {
         <div style={{
           maxWidth: '1440px',
           margin: '0 auto',
-          display: 'grid',
-          gridTemplateColumns: 'repeat(4, 1fr)',
+          display: 'flex',
+          flexWrap: 'wrap',
           gap: 'var(--space-8)',
         }}>
           {[
@@ -74,6 +74,7 @@ export default function EntreprisePage() {
               key={kpi.label}
               className="reveal"
               style={{
+                flex: '1 1 200px',
                 background: 'var(--surface-container-low)',
                 padding: 'var(--space-10)',
                 textAlign: 'center',
@@ -164,8 +165,8 @@ export default function EntreprisePage() {
           </h2>
 
           <div style={{
-            display: 'grid',
-            gridTemplateColumns: 'repeat(4, 1fr)',
+            display: 'flex',
+            flexWrap: 'wrap',
             gap: 'var(--space-8)',
           }}>
             {TEAMS.map((team) => (
@@ -173,6 +174,7 @@ export default function EntreprisePage() {
                 key={team.title}
                 className="reveal"
                 style={{
+                  flex: '1 1 220px',
                   background: 'var(--surface-container-low)',
                   padding: 'var(--space-10)',
                 }}

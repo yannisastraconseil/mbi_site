@@ -82,8 +82,8 @@ export default function EquipementsPage() {
         <div style={{
           maxWidth: '1440px',
           margin: '0 auto',
-          display: 'grid',
-          gridTemplateColumns: 'repeat(3, 1fr)',
+          display: 'flex',
+          flexWrap: 'wrap',
           gap: 'var(--space-8)',
         }}>
           {EQUIPMENT.map((eq) => (
@@ -91,10 +91,10 @@ export default function EquipementsPage() {
               key={eq.id}
               className="reveal"
               style={{
+                flex: eq.featured ? '1 1 600px' : '1 1 280px',
                 background: 'var(--surface-container-low)',
                 padding: 'var(--space-10)',
                 borderTop: eq.featured ? '3px solid var(--primary)' : '1px solid rgba(65, 71, 84, 0.2)',
-                gridColumn: eq.featured ? 'span 2' : 'span 1',
                 transition: 'background 0.4s',
               }}
             >

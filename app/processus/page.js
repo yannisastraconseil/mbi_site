@@ -10,43 +10,43 @@ const STEPS = [
     id: '01',
     title: 'Réception',
     desc: 'Chaque moteur est photographié, identifié et un numéro de fabrication lui est attribué. Constat de l\'état du moteur à l\'entrée de nos ateliers.',
-    image: '/images/reception.jpg',
+    image: '/images/hero-engine.png',
   },
   {
     id: '02',
     title: 'Démontage',
     desc: 'Chaque moteur est soigneusement démonté avec une identification de chaque pièce maîtresse.',
-    image: '/images/demontage.png',
+    image: '/images/factory.png',
   },
   {
     id: '03',
     title: 'Lavage',
     desc: 'Toutes les pièces du moteur suivent une gamme de nettoyage adaptée à leurs caractéristiques métallurgiques.',
-    image: '/images/lavage.jpg',
+    image: '/images/lavage-hq.png',
   },
   {
     id: '04',
     title: 'Usinage',
     desc: 'Après un contrôle rigoureux des pièces maîtresses (bloc, villebrequin, culasse, arbre à came, bielle), elles suivent un process de rénovation conforme aux exigences constructeurs.',
-    image: '/images/montage.jpg',
+    image: '/images/usinage.png',
   },
   {
     id: '05',
     title: 'Montage',
     desc: 'Chaque moteur est assemblé méthodiquement selon les données constructeurs. Toutes les pièces d\'usure sont homologuées par les constructeurs.',
-    image: '/images/montage.jpg',
+    image: '/images/montage-hq.png',
   },
   {
     id: '06',
     title: 'Essais',
     desc: 'Chaque moteur rénové respecte les caractéristiques constructeurs (puissance/couple). Contrôle dans nos cellules d\'essai. Capacité jusqu\'à 2 000 chevaux.',
-    image: '/images/essai-injecteurs.png',
+    image: '/images/testbench.png',
   },
   {
     id: '07',
     title: 'Finition',
     desc: 'Chaque moteur passe en cellule de peinture pour finition. Il est ensuite emballé sur palette pour expédition.',
-    image: '/images/finition.png',
+    image: '/images/finition-hq.png',
   },
 ];
 
@@ -83,32 +83,33 @@ export default function ProcessPage() {
           }}
         >
           <div className="container" style={{
-            display: 'grid',
-            gridTemplateColumns: index % 2 === 0 ? '5fr 7fr' : '7fr 5fr',
+            display: 'flex',
+            flexDirection: index % 2 === 0 ? 'row' : 'row-reverse',
             gap: 'var(--space-12)',
             alignItems: 'center',
             maxWidth: '1440px',
+            flexWrap: 'wrap',
           }}>
-            {index % 2 === 0 && (
-              <div style={{
-                position: 'relative',
-                overflow: 'hidden',
-                height: '360px',
-              }}>
-                <img
-                  src={step.image}
-                  alt={step.title}
-                  style={{
-                    width: '100%',
-                    height: '100%',
-                    objectFit: 'cover',
-                    filter: 'grayscale(50%)',
-                  }}
-                />
-              </div>
-            )}
+            <div style={{
+              flex: '1 1 400px',
+              position: 'relative',
+              overflow: 'hidden',
+              height: '360px',
+              minWidth: '300px',
+            }}>
+              <img
+                src={step.image}
+                alt={step.title}
+                style={{
+                  width: '100%',
+                  height: '100%',
+                  objectFit: 'cover',
+                  filter: 'grayscale(30%)',
+                }}
+              />
+            </div>
 
-            <div style={{ padding: 'var(--space-8)' }}>
+            <div style={{ flex: '1 1 400px', padding: 'var(--space-8)' }}>
               <span className="label-lg" style={{ color: 'var(--primary)', display: 'block', marginBottom: 'var(--space-4)' }}>
                 Étape {step.id}
               </span>
@@ -119,25 +120,6 @@ export default function ProcessPage() {
                 {step.desc}
               </p>
             </div>
-
-            {index % 2 !== 0 && (
-              <div style={{
-                position: 'relative',
-                overflow: 'hidden',
-                height: '360px',
-              }}>
-                <img
-                  src={step.image}
-                  alt={step.title}
-                  style={{
-                    width: '100%',
-                    height: '100%',
-                    objectFit: 'cover',
-                    filter: 'grayscale(50%)',
-                  }}
-                />
-              </div>
-            )}
           </div>
         </section>
       ))}

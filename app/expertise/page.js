@@ -82,12 +82,12 @@ export default function ExpertisePage() {
         >
           <div className="container" style={{ maxWidth: '1440px' }}>
             <div style={{
-              display: 'grid',
-              gridTemplateColumns: '1fr 1fr',
+              display: 'flex',
+              flexWrap: 'wrap',
               gap: 'var(--space-12)',
               alignItems: 'start',
             }}>
-              <div style={{ padding: 'var(--space-6) 0' }}>
+              <div style={{ flex: '1 1 400px', padding: 'var(--space-6) 0' }}>
                 <span className="label-md" style={{ color: domain.color, display: 'block', marginBottom: 'var(--space-4)' }}>
                   {domain.id} / {domain.label}
                 </span>
@@ -100,6 +100,7 @@ export default function ExpertisePage() {
               </div>
 
               <div style={{
+                flex: '1 1 400px',
                 background: 'var(--surface-container-low)',
                 padding: 'var(--space-10)',
                 borderTop: `2px solid ${domain.color}`,

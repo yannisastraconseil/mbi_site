@@ -14,7 +14,7 @@ export default function HomePage() {
       <section className={styles.hero}>
         <div className={styles.hero__bg}>
           <img
-            src="/images/hero-moteur.png"
+            src="/images/hero-engine.png"
             alt="Moteur industriel haute performance reconstruit par M.B.I Engine Solutions"
           />
           <div className={styles.hero__overlay} />
@@ -117,7 +117,7 @@ export default function HomePage() {
           {/* Right: Image with overlay */}
           <div className={`${styles.process__image} reveal reveal-delay-2`}>
             <img
-              src="/images/usine.jpg"
+              src="/images/factory.png"
               alt="Atelier de reconstruction moteur M.B.I"
             />
             <div className={styles['process__image-overlay']}>
