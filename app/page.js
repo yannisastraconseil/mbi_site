@@ -45,7 +45,7 @@ export default function HomePage() {
           {/* Card 1 */}
           <div className={`${styles['service-card']} reveal`}>
             <div className={styles['service-card__icon']}>
-              <span className="material-symbols-outlined" style={{ fontSize: '3rem', fontVariationSettings: "'FILL' 1" }}>
+              <span className="material-symbols-outlined" style={{ fontSize: '2rem', fontVariationSettings: "'FILL' 1" }}>
                 precision_manufacturing
               </span>
             </div>
@@ -58,7 +58,7 @@ export default function HomePage() {
           {/* Card 2 */}
           <div className={`${styles['service-card']} reveal reveal-delay-1`}>
             <div className={styles['service-card__icon']}>
-              <span className="material-symbols-outlined" style={{ fontSize: '3rem', fontVariationSettings: "'FILL' 1" }}>
+              <span className="material-symbols-outlined" style={{ fontSize: '2rem', fontVariationSettings: "'FILL' 1" }}>
                 engineering
               </span>
             </div>
@@ -71,7 +71,7 @@ export default function HomePage() {
           {/* Card 3 */}
           <div className={`${styles['service-card']} reveal reveal-delay-2`}>
             <div className={styles['service-card__icon']}>
-              <span className="material-symbols-outlined" style={{ fontSize: '3rem', fontVariationSettings: "'FILL' 1" }}>
+              <span className="material-symbols-outlined" style={{ fontSize: '2rem', fontVariationSettings: "'FILL' 1" }}>
                 verified
               </span>
             </div>
