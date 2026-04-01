@@ -19,7 +19,7 @@ const TIMELINE = [
   {
     year: 'Aujourd\'hui',
     title: 'Motorop BRM Industries',
-    desc: 'Une cinquantaine d\'employés, 6M€ de CA, plus de 4 500 m² d\'ateliers et plus de 500 000 moteurs rénovés.',
+    desc: 'Une cinquantaine d\'employés, 20M€ de CA, plus de 4 500 m² d\'ateliers et plus de 500 000 moteurs rénovés.',
   },
 ];
 
@@ -65,7 +65,7 @@ export default function EntreprisePage() {
           gap: 'var(--space-8)',
         }}>
           {[
-            { value: '6M€', label: 'Chiffre d\'Affaires' },
+            { value: '20M€', label: 'Chiffre d\'Affaires' },
             { value: '50', label: 'Employés' },
             { value: '4 500m²', label: 'Surface Atelier' },
             { value: '1927', label: 'Année de Création' },

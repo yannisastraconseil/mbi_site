@@ -2,6 +2,23 @@
 
 import Link from 'next/link';
 
+const COMMERCIAUX = [
+  { zone: 'Nord / Est / Paris / Bretagne', name: 'Romain BESSON', phone: '06 20 71 47 15', email: 'besson.romain@m-b-i.fr' },
+  { zone: 'Zone Centre', name: 'Jonathan TEISSIER', phone: '06 11 22 51 12', email: 'teissier.jonathan@m-b-i.fr' },
+  { zone: 'Zone Sud', name: 'Baptiste BOUCHET', phone: '06 20 92 08 20', email: 'bouchet.baptiste@m-b-i.fr' },
+];
+
+const INPUT_STYLE = {
+  width: '100%',
+  background: 'var(--surface-container-high)',
+  border: '1px solid rgba(65, 71, 84, 0.3)',
+  color: 'var(--on-surface)',
+  padding: 'var(--space-4) var(--space-5)',
+  fontSize: '0.9375rem',
+  outline: 'none',
+  transition: 'border-color 0.3s',
+};
+
 export default function ContactPage() {
   return (
     <>
@@ -24,10 +41,71 @@ export default function ContactPage() {
         </div>
       </section>
 
+      {/* Commerciaux — full-width cards */}
+      <section style={{
+        padding: 'var(--space-12) var(--space-10)',
+        paddingBottom: 'var(--space-16)',
+        background: 'var(--surface-container-lowest)',
+      }}>
+        <div className="container" style={{ maxWidth: '1440px' }}>
+          <h2 className="headline-sm reveal" style={{ color: 'white', marginBottom: 'var(--space-10)' }}>
+            Vos Interlocuteurs Commerciaux
+          </h2>
+          <div style={{
+            display: 'flex',
+            flexWrap: 'wrap',
+            gap: 'var(--space-6)',
+          }}>
+            {COMMERCIAUX.map((c) => (
+              <div
+                key={c.name}
+                className="reveal"
+                style={{
+                  flex: '1 1 280px',
+                  background: 'var(--surface-container-low)',
+                  padding: 'var(--space-8)',
+                  borderTop: '2px solid var(--primary)',
+                  display: 'flex',
+                  flexDirection: 'column',
+                  gap: 'var(--space-4)',
+                }}
+              >
+                <span className="label-sm" style={{
+                  color: 'var(--primary)',
+                  letterSpacing: '0.1em',
+                  textTransform: 'uppercase',
+                }}>
+                  {c.zone}
+                </span>
+                <p style={{ color: 'white', fontWeight: 600, fontSize: '1.125rem' }}>
+                  {c.name}
+                </p>
+                <div style={{ display: 'flex', flexDirection: 'column', gap: 'var(--space-2)', marginTop: 'auto' }}>
+                  <a
+                    href={`tel:${c.phone.replace(/\s/g, '')}`}
+                    style={{ color: 'var(--on-surface-variant)', display: 'flex', alignItems: 'center', gap: 'var(--space-3)', textDecoration: 'none' }}
+                  >
+                    <span className="material-symbols-outlined" style={{ fontSize: '1.125rem' }}>call</span>
+                    {c.phone}
+                  </a>
+                  <a
+                    href={`mailto:${c.email}`}
+                    style={{ color: 'var(--primary)', display: 'flex', alignItems: 'center', gap: 'var(--space-3)', textDecoration: 'none' }}
+                  >
+                    <span className="material-symbols-outlined" style={{ fontSize: '1.125rem' }}>mail</span>
+                    {c.email}
+                  </a>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
       {/* Form + Sidebar */}
       <section style={{
-        padding: 'var(--space-20) var(--space-10)',
-        background: 'var(--surface-container-lowest)',
+        padding: 'var(--space-16) var(--space-10)',
+        background: 'var(--surface)',
       }}>
         <div className="container" style={{
           maxWidth: '1440px',
@@ -38,7 +116,7 @@ export default function ContactPage() {
         }}>
           {/* Form */}
           <div style={{
-            flex: '1 1 500px',
+            flex: '2 1 500px',
             background: 'var(--surface-container-low)',
             padding: 'var(--space-12)',
           }}>
@@ -51,152 +129,89 @@ export default function ContactPage() {
               flexDirection: 'column',
               gap: 'var(--space-8)',
             }}>
-              <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 'var(--space-6)' }}>
-                <div>
+              <div style={{ display: 'flex', flexWrap: 'wrap', gap: 'var(--space-6)' }}>
+                <div style={{ flex: '1 1 200px' }}>
                   <label className="label-sm" htmlFor="nom" style={{ color: 'var(--on-surface-variant)', display: 'block', marginBottom: 'var(--space-2)' }}>
                     Nom *
                   </label>
-                  <input
-                    id="nom"
-                    type="text"
-                    required
-                    style={{
-                      width: '100%',
-                      background: 'var(--surface-container-high)',
-                      border: 'none',
-                      color: 'var(--on-surface)',
-                      padding: 'var(--space-4)',
-                      fontSize: '0.9375rem',
-                      outline: 'none',
-                    }}
-                  />
+                  <input id="nom" type="text" required style={INPUT_STYLE} />
                 </div>
-                <div>
+                <div style={{ flex: '1 1 200px' }}>
                   <label className="label-sm" htmlFor="prenom" style={{ color: 'var(--on-surface-variant)', display: 'block', marginBottom: 'var(--space-2)' }}>
                     Prénom *
                   </label>
-                  <input
-                    id="prenom"
-                    type="text"
-                    required
-                    style={{
-                      width: '100%',
-                      background: 'var(--surface-container-high)',
-                      border: 'none',
-                      color: 'var(--on-surface)',
-                      padding: 'var(--space-4)',
-                      fontSize: '0.9375rem',
-                      outline: 'none',
-                    }}
-                  />
+                  <input id="prenom" type="text" required style={INPUT_STYLE} />
                 </div>
               </div>
 
-              <div>
-                <label className="label-sm" htmlFor="entreprise" style={{ color: 'var(--on-surface-variant)', display: 'block', marginBottom: 'var(--space-2)' }}>
-                  Entreprise
-                </label>
-                <input
-                  id="entreprise"
-                  type="text"
-                  style={{
-                    width: '100%',
-                    background: 'var(--surface-container-high)',
-                    border: 'none',
-                    color: 'var(--on-surface)',
-                    padding: 'var(--space-4)',
-                    fontSize: '0.9375rem',
-                    outline: 'none',
-                  }}
-                />
-              </div>
-
-              <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 'var(--space-6)' }}>
-                <div>
-                  <label className="label-sm" htmlFor="email" style={{ color: 'var(--on-surface-variant)', display: 'block', marginBottom: 'var(--space-2)' }}>
-                    Email *
+              <div style={{ display: 'flex', flexWrap: 'wrap', gap: 'var(--space-6)' }}>
+                <div style={{ flex: '1 1 200px' }}>
+                  <label className="label-sm" htmlFor="societe" style={{ color: 'var(--on-surface-variant)', display: 'block', marginBottom: 'var(--space-2)' }}>
+                    Société *
                   </label>
-                  <input
-                    id="email"
-                    type="email"
-                    required
-                    style={{
-                      width: '100%',
-                      background: 'var(--surface-container-high)',
-                      border: 'none',
-                      color: 'var(--on-surface)',
-                      padding: 'var(--space-4)',
-                      fontSize: '0.9375rem',
-                      outline: 'none',
-                    }}
-                  />
+                  <input id="societe" type="text" required style={INPUT_STYLE} />
                 </div>
-                <div>
+                <div style={{ flex: '1 1 200px' }}>
                   <label className="label-sm" htmlFor="telephone" style={{ color: 'var(--on-surface-variant)', display: 'block', marginBottom: 'var(--space-2)' }}>
-                    Téléphone
+                    Téléphone *
                   </label>
-                  <input
-                    id="telephone"
-                    type="tel"
-                    style={{
-                      width: '100%',
-                      background: 'var(--surface-container-high)',
-                      border: 'none',
-                      color: 'var(--on-surface)',
-                      padding: 'var(--space-4)',
-                      fontSize: '0.9375rem',
-                      outline: 'none',
-                    }}
-                  />
+                  <input id="telephone" type="tel" required style={INPUT_STYLE} />
                 </div>
               </div>
 
               <div>
-                <label className="label-sm" htmlFor="type-moteur" style={{ color: 'var(--on-surface-variant)', display: 'block', marginBottom: 'var(--space-2)' }}>
-                  Type de moteur / Référence
+                <label className="label-sm" htmlFor="email" style={{ color: 'var(--on-surface-variant)', display: 'block', marginBottom: 'var(--space-2)' }}>
+                  Email *
                 </label>
-                <input
-                  id="type-moteur"
-                  type="text"
-                  placeholder="Ex: Caterpillar C7, Cummins QSK60..."
-                  style={{
-                    width: '100%',
-                    background: 'var(--surface-container-high)',
-                    border: 'none',
-                    color: 'var(--on-surface)',
-                    padding: 'var(--space-4)',
-                    fontSize: '0.9375rem',
-                    outline: 'none',
-                  }}
-                />
+                <input id="email" type="email" required style={INPUT_STYLE} />
+              </div>
+
+              <div>
+                <label className="label-sm" htmlFor="secteur" style={{ color: 'var(--on-surface-variant)', display: 'block', marginBottom: 'var(--space-2)' }}>
+                  Secteur d'activité
+                </label>
+                <select id="secteur" style={{ ...INPUT_STYLE, cursor: 'pointer' }}>
+                  <option>Travaux Publics</option>
+                  <option>Transports Urbains</option>
+                  <option>Transports Ferroviaires</option>
+                  <option>Maritime</option>
+                  <option>Agricole</option>
+                  <option>Défense</option>
+                  <option>Autre</option>
+                </select>
               </div>
 
               <div>
                 <label className="label-sm" htmlFor="message" style={{ color: 'var(--on-surface-variant)', display: 'block', marginBottom: 'var(--space-2)' }}>
-                  Description de votre besoin *
+                  Message / Détails de la demande *
                 </label>
                 <textarea
                   id="message"
                   required
                   rows={6}
-                  style={{
-                    width: '100%',
-                    background: 'var(--surface-container-high)',
-                    border: 'none',
-                    color: 'var(--on-surface)',
-                    padding: 'var(--space-4)',
-                    fontSize: '0.9375rem',
-                    outline: 'none',
-                    resize: 'vertical',
-                  }}
+                  style={{ ...INPUT_STYLE, resize: 'vertical', fontFamily: 'inherit' }}
+                  placeholder="Décrivez votre besoin : type de moteur, marque, modèle, quantité..."
                 />
               </div>
 
-              <button type="submit" className="btn-primary" style={{
-                padding: 'var(--space-4) var(--space-10)',
-                width: 'fit-content',
-              }}>
-                Envoyer la demande
+              <button
+                type="submit"
+                style={{
+                  background: 'var(--primary)',
+                  color: 'var(--on-primary)',
+                  padding: 'var(--space-5) var(--space-10)',
+                  border: 'none',
+                  fontFamily: 'var(--font-label)',
+                  fontSize: '0.875rem',
+                  fontWeight: 600,
+                  letterSpacing: '0.08em',
+                  textTransform: 'uppercase',
+                  cursor: 'pointer',
+                  alignSelf: 'flex-start',
+                  transition: 'opacity 0.3s',
+                }}
+              >
+                Envoyer la Demande
               </button>
             </form>
           </div>
@@ -205,8 +220,7 @@ export default function ContactPage() {
           <div style={{ flex: '1 1 300px', display: 'flex', flexDirection: 'column', gap: 'var(--space-8)' }}>
             {/* Address card */}
             <div style={{
-              background: 'rgba(32, 31, 31, 0.7)',
-              backdropFilter: 'blur(20px)',
+              background: 'var(--surface-container-low)',
               padding: 'var(--space-10)',
               borderTop: '2px solid var(--primary)',
             }}>
@@ -241,51 +255,7 @@ export default function ContactPage() {
               </div>
             </div>
 
-            {/* Commerciaux */}
-            <div style={{
-              background: 'rgba(32, 31, 31, 0.7)',
-              backdropFilter: 'blur(20px)',
-              padding: 'var(--space-10)',
-              borderTop: '2px solid var(--primary)',
-            }}>
-              <h3 className="headline-sm" style={{ color: 'white', marginBottom: 'var(--space-8)' }}>
-                Commerciaux
-              </h3>
-              <div style={{ display: 'flex', flexDirection: 'column', gap: 'var(--space-6)' }}>
-                {[
-                  { zone: 'Nord / Est / Paris / Bretagne', name: 'Romain BESSON', phone: '06 20 71 47 15', email: 'besson.romain@m-b-i.fr' },
-                  { zone: 'Zone Centre', name: 'Jonathan TEISSIER', phone: '06 11 22 51 12', email: 'teissier.jonathan@m-b-i.fr' },
-                  { zone: 'Zone Sud', name: 'Baptiste BOUCHET', phone: '06 20 92 08 20', email: 'bouchet.baptiste@m-b-i.fr' },
-                ].map((c) => (
-                  <div key={c.name} style={{
-                    background: 'var(--surface-container-high)',
-                    padding: 'var(--space-6)',
-                    borderLeft: '3px solid var(--primary)',
-                  }}>
-                    <span className="label-sm" style={{ color: 'var(--primary)', display: 'block', marginBottom: 'var(--space-2)', letterSpacing: '0.1em', textTransform: 'uppercase' }}>
-                      {c.zone}
-                    </span>
-                    <p style={{ color: 'var(--on-surface)', fontWeight: 600, marginBottom: 'var(--space-2)' }}>
-                      {c.name}
-                    </p>
-                    <div style={{ display: 'flex', alignItems: 'center', gap: 'var(--space-2)', marginBottom: 'var(--space-1)' }}>
-                      <span className="material-symbols-outlined" style={{ fontSize: '1rem', color: 'var(--on-surface-variant)' }}>call</span>
-                      <a href={`tel:${c.phone.replace(/\s/g, '')}`} className="body-sm" style={{ color: 'var(--on-surface-variant)' }}>
-                        {c.phone}
-                      </a>
-                    </div>
-                    <div style={{ display: 'flex', alignItems: 'center', gap: 'var(--space-2)' }}>
-                      <span className="material-symbols-outlined" style={{ fontSize: '1rem', color: 'var(--on-surface-variant)' }}>mail</span>
-                      <a href={`mailto:${c.email}`} className="body-sm" style={{ color: 'var(--primary)' }}>
-                        {c.email}
-                      </a>
-                    </div>
-                  </div>
-                ))}
-              </div>
-            </div>
-
-            {/* Info cards */}
+            {/* Quick info */}
             <div style={{
               display: 'grid',
               gridTemplateColumns: '1fr 1fr',

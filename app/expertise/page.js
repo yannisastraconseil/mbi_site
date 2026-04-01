@@ -13,6 +13,7 @@ const DOMAINS = [
     desc: 'Reconstruction de moteurs pour les engins de travaux publics et miniers. Pelleteuses, chargeuses, tombereaux, bulldozers et groupes électrogènes.',
     brands: ['Caterpillar', 'Komatsu', 'Liebherr', 'Volvo CE', 'Hitachi', 'JCB'],
     color: 'var(--primary)',
+    image: '/images/expertise-tp.png',
   },
   {
     id: '02',
@@ -21,6 +22,7 @@ const DOMAINS = [
     desc: 'Moteurs pour autobus, tramways, autorails et locomotives. Rénovation conforme aux exigences de fiabilité et de sécurité du transport public.',
     brands: ['MAN', 'Scania', 'Iveco', 'Mercedes', 'Renault Trucks', 'Deutz'],
     color: 'var(--primary)',
+    image: '/images/expertise-transport.png',
   },
   {
     id: '03',
@@ -29,6 +31,7 @@ const DOMAINS = [
     desc: 'Reconstruction de moteurs marins pour navires de commerce, bateaux de pêche et plateformes offshore. Conformité aux normes maritimes internationales.',
     brands: ['Cummins Marine', 'MTU', 'Volvo Penta', 'Baudouin', 'Wärtsilä'],
     color: 'var(--primary)',
+    image: '/images/expertise-maritime.png',
   },
   {
     id: '04',
@@ -37,6 +40,7 @@ const DOMAINS = [
     desc: 'Moteurs pour tracteurs, moissonneuses-batteuses et équipements agricoles. Intervention rapide pour minimiser les temps d\'arrêt pendant les récoltes.',
     brands: ['John Deere', 'Fendt', 'Case IH', 'New Holland', 'Massey Ferguson'],
     color: 'var(--primary)',
+    image: '/images/expertise-agricole.png',
   },
   {
     id: '05',
@@ -45,6 +49,7 @@ const DOMAINS = [
     desc: 'Reconstruction de moteurs pour véhicules de défense et engins tactiques. Respect des cahiers des charges militaires et habilitations spécifiques.',
     brands: ['Renault Trucks Defense', 'Scania Defense', 'Perkins'],
     color: 'var(--tertiary)',
+    image: '/images/expertise-defense.png',
   },
 ];
 
@@ -83,11 +88,62 @@ export default function ExpertisePage() {
           <div className="container" style={{ maxWidth: '1440px' }}>
             <div style={{
               display: 'flex',
+              flexDirection: index % 2 === 0 ? 'row' : 'row-reverse',
               flexWrap: 'wrap',
-              gap: 'var(--space-12)',
-              alignItems: 'start',
+              gap: 'var(--space-8)',
+              alignItems: 'stretch',
             }}>
-              <div style={{ flex: '1 1 400px', padding: 'var(--space-6) 0' }}>
+              {/* Image */}
+              <div style={{
+                flex: '1 1 400px',
+                position: 'relative',
+                overflow: 'hidden',
+                minHeight: '320px',
+              }}>
+                <img
+                  src={domain.image}
+                  alt={domain.title}
+                  style={{
+                    width: '100%',
+                    height: '100%',
+                    objectFit: 'cover',
+                    filter: 'grayscale(20%)',
+                    position: 'absolute',
+                    inset: 0,
+                  }}
+                />
+                <div style={{
+                  position: 'absolute',
+                  inset: 0,
+                  background: 'linear-gradient(to top, rgba(9,9,11,0.9), transparent)',
+                  display: 'flex',
+                  alignItems: 'flex-end',
+                  padding: 'var(--space-8)',
+                }}>
+                  <div style={{ display: 'flex', flexWrap: 'wrap', gap: 'var(--space-2)' }}>
+                    {domain.brands.map((brand) => (
+                      <span
+                        key={brand}
+                        style={{
+                          background: 'rgba(255,255,255,0.1)',
+                          backdropFilter: 'blur(8px)',
+                          padding: 'var(--space-1) var(--space-3)',
+                          fontSize: '0.6875rem',
+                          fontFamily: 'var(--font-label)',
+                          color: 'white',
+                          letterSpacing: '0.08em',
+                          textTransform: 'uppercase',
+                        }}
+                      >
+                        {brand}
+                      </span>
+                    ))}
+                  </div>
+                </div>
+              </div>
+
+              {/* Text */}
+              <div style={{ flex: '1 1 400px', padding: 'var(--space-8) 0', display: 'flex', flexDirection: 'column', justifyContent: 'center' }}>
                 <span className="label-md" style={{ color: domain.color, display: 'block', marginBottom: 'var(--space-4)' }}>
                   {domain.id} / {domain.label}
                 </span>
@@ -97,38 +153,6 @@ export default function ExpertisePage() {
                 <p className="body-lg" style={{ maxWidth: '520px' }}>
                   {domain.desc}
                 </p>
-              </div>
-
-              <div style={{
-                flex: '1 1 400px',
-                background: 'var(--surface-container-low)',
-                padding: 'var(--space-10)',
-                borderTop: `2px solid ${domain.color}`,
-              }}>
-                <span className="label-sm" style={{ color: 'var(--on-surface-variant)', display: 'block', marginBottom: 'var(--space-6)' }}>
-                  Marques de référence
-                </span>
-                <div style={{
-                  display: 'flex',
-                  flexWrap: 'wrap',
-                  gap: 'var(--space-3)',
-                }}>
-                  {domain.brands.map((brand) => (
-                    <span
-                      key={brand}
-                      style={{
-                        background: 'var(--surface-container-high)',
-                        padding: 'var(--space-2) var(--space-4)',
-                        fontSize: '0.8125rem',
-                        fontFamily: 'var(--font-label)',
-                        color: 'var(--on-surface)',
-                        letterSpacing: '0.03em',
-                      }}
-                    >
-                      {brand}
-                    </span>
-                  ))}
-                </div>
               </div>
             </div>
           </div>

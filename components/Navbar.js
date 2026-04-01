@@ -8,7 +8,7 @@ import styles from './Navbar.module.css';
 const NAV_ITEMS = [
   { href: '/processus',   label: 'Notre Processus' },
   { href: '/expertise',   label: 'Expertise' },
-  { href: '/equipements', label: 'Équipements' },
+  { href: '/equipements', label: 'Banc d\'essai' },
   { href: '/references',  label: 'Références' },
   { href: '/entreprise',  label: 'À Propos' },
 ];
