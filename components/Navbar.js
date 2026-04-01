@@ -9,7 +9,7 @@ const NAV_ITEMS = [
   { href: '/processus',   label: 'Notre Processus' },
   { href: '/expertise',   label: 'Expertise' },
   { href: '/equipements', label: 'Équipements' },
-  { href: '/references',  label: 'Spécifications' },
+  { href: '/references',  label: 'Références' },
   { href: '/entreprise',  label: 'À Propos' },
 ];
 

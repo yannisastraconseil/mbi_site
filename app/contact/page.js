@@ -241,6 +241,50 @@ export default function ContactPage() {
               </div>
             </div>
 
+            {/* Commerciaux */}
+            <div style={{
+              background: 'rgba(32, 31, 31, 0.7)',
+              backdropFilter: 'blur(20px)',
+              padding: 'var(--space-10)',
+              borderTop: '2px solid var(--primary)',
+            }}>
+              <h3 className="headline-sm" style={{ color: 'white', marginBottom: 'var(--space-8)' }}>
+                Commerciaux
+              </h3>
+              <div style={{ display: 'flex', flexDirection: 'column', gap: 'var(--space-6)' }}>
+                {[
+                  { zone: 'Nord / Est / Paris / Bretagne', name: 'Romain BESSON', phone: '06 20 71 47 15', email: 'besson.romain@m-b-i.fr' },
+                  { zone: 'Zone Centre', name: 'Jonathan TEISSIER', phone: '06 11 22 51 12', email: 'teissier.jonathan@m-b-i.fr' },
+                  { zone: 'Zone Sud', name: 'Baptiste BOUCHET', phone: '06 20 92 08 20', email: 'bouchet.baptiste@m-b-i.fr' },
+                ].map((c) => (
+                  <div key={c.name} style={{
+                    background: 'var(--surface-container-high)',
+                    padding: 'var(--space-6)',
+                    borderLeft: '3px solid var(--primary)',
+                  }}>
+                    <span className="label-sm" style={{ color: 'var(--primary)', display: 'block', marginBottom: 'var(--space-2)', letterSpacing: '0.1em', textTransform: 'uppercase' }}>
+                      {c.zone}
+                    </span>
+                    <p style={{ color: 'var(--on-surface)', fontWeight: 600, marginBottom: 'var(--space-2)' }}>
+                      {c.name}
+                    </p>
+                    <div style={{ display: 'flex', alignItems: 'center', gap: 'var(--space-2)', marginBottom: 'var(--space-1)' }}>
+                      <span className="material-symbols-outlined" style={{ fontSize: '1rem', color: 'var(--on-surface-variant)' }}>call</span>
+                      <a href={`tel:${c.phone.replace(/\s/g, '')}`} className="body-sm" style={{ color: 'var(--on-surface-variant)' }}>
+                        {c.phone}
+                      </a>
+                    </div>
+                    <div style={{ display: 'flex', alignItems: 'center', gap: 'var(--space-2)' }}>
+                      <span className="material-symbols-outlined" style={{ fontSize: '1rem', color: 'var(--on-surface-variant)' }}>mail</span>
+                      <a href={`mailto:${c.email}`} className="body-sm" style={{ color: 'var(--primary)' }}>
+                        {c.email}
+                      </a>
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </div>
+
             {/* Info cards */}
             <div style={{
               display: 'grid',
