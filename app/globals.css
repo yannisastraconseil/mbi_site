@@ -1,43 +1,43 @@
 /* =============================================
    M.B.I ENGINE SOLUTIONS — Design System
-   "Carbon Precision / Kinetic Monolith"
+   "Industrial Precision"
    ============================================= */
 
 /* --- Fonts loaded via <link> in layout.js <head> ---  */
 
 /* --- CSS Custom Properties (Design Tokens) --- */
 :root {
-  /* === Surface Hierarchy === */
-  --surface:                  #131313;
-  --surface-dim:              #131313;
-  --surface-bright:           #3a3939;
-  --surface-container-lowest: #0e0e0e;
-  --surface-container-low:    #1c1b1b;
-  --surface-container:        #201f1f;
-  --surface-container-high:   #2a2a2a;
-  --surface-container-highest:#353534;
-  --surface-variant:          #353534;
+  /* === Surface Hierarchy (Steel Grey) === */
+  --surface:                  #0f1215;
+  --surface-dim:              #0f1215;
+  --surface-bright:           #343a42;
+  --surface-container-lowest: #0a0d10;
+  --surface-container-low:    #171c22;
+  --surface-container:        #1c2228;
+  --surface-container-high:   #252c34;
+  --surface-container-highest:#2e353e;
+  --surface-variant:          #2e353e;
 
-  /* === Primary (Electric Blue) === */
-  --primary:                  #adc7ff;
-  --primary-container:        #4a8eff;
-  --on-primary:               #002e68;
-  --on-primary-container:     #00285b;
-  --primary-fixed:            #d8e2ff;
-  --primary-fixed-dim:        #adc7ff;
-  --inverse-primary:          #005bc0;
+  /* === Primary (MBI Industrial Blue) === */
+  --primary:                  #5b8fd4;
+  --primary-container:        #1a4b8c;
+  --on-primary:               #ffffff;
+  --on-primary-container:     #ffffff;
+  --primary-fixed:            #d0e2ff;
+  --primary-fixed-dim:        #6da3e8;
+  --inverse-primary:          #1a4b8c;
 
-  /* === Secondary === */
-  --secondary:                #c8c6c5;
-  --secondary-container:      #4a4949;
-  --on-secondary:             #313030;
-  --on-secondary-container:   #bab8b7;
+  /* === Secondary (Neutral Steel) === */
+  --secondary:                #b4bcc6;
+  --secondary-container:      #3d454e;
+  --on-secondary:             #262c33;
+  --on-secondary-container:   #a8b0ba;
 
-  /* === Tertiary (Accent Orange) === */
-  --tertiary:                 #ffb695;
-  --tertiary-container:       #ef6719;
-  --on-tertiary:              #571e00;
-  --on-tertiary-container:    #4c1a00;
+  /* === Tertiary (MBI Red Accent) === */
+  --tertiary:                 #e84a5f;
+  --tertiary-container:       #c41230;
+  --on-tertiary:              #ffffff;
+  --on-tertiary-container:    #ffffff;
 
   /* === Error === */
   --error:                    #ffb4ab;
@@ -46,15 +46,15 @@
   --on-error-container:       #ffdad6;
 
   /* === On-Surface === */
-  --on-surface:               #e5e2e1;
-  --on-surface-variant:       #c1c6d7;
-  --on-background:            #e5e2e1;
-  --inverse-surface:          #e5e2e1;
-  --inverse-on-surface:       #313030;
+  --on-surface:               #e0e4ea;
+  --on-surface-variant:       #9ba3ae;
+  --on-background:            #e0e4ea;
+  --inverse-surface:          #e0e4ea;
+  --inverse-on-surface:       #1c2228;
 
   /* === Outline === */
-  --outline:                  #8b90a0;
-  --outline-variant:          #414754;
+  --outline:                  #6b7380;
+  --outline-variant:          #3a424c;
 
   /* === Typography === */
   --font-headline: 'Space Grotesk', sans-serif;
@@ -66,6 +66,7 @@
   --space-2:  0.5rem;
   --space-3:  0.75rem;
   --space-4:  1rem;
+  --space-5:  1.25rem;
   --space-6:  1.5rem;
   --space-8:  2rem;
   --space-10: 2.5rem;
@@ -234,9 +235,9 @@ input, select, textarea {
 
 /* --- Component Utilities --- */
 
-/* Kinetic Gradient (Signature CTA) */
+/* Industrial Blue Panel */
 .kinetic-gradient {
-  background: linear-gradient(135deg, var(--primary) 0%, var(--primary-container) 100%);
+  background: var(--primary-container);
 }
 
 /* Glass Panel */
@@ -273,19 +274,19 @@ input, select, textarea {
   justify-content: center;
   gap: var(--space-2);
   padding: var(--space-4) var(--space-8);
-  background: linear-gradient(135deg, var(--primary) 0%, var(--primary-container) 100%);
-  color: var(--on-primary-container);
+  background: var(--primary-container);
+  color: var(--on-primary);
   font-family: var(--font-headline);
   font-weight: 700;
   font-size: 0.875rem;
   letter-spacing: 0.08em;
   text-transform: uppercase;
-  transition: transform var(--duration-fast) var(--ease-out),
-              opacity var(--duration-fast);
+  transition: background var(--duration-fast),
+              transform var(--duration-fast) var(--ease-out);
 }
 
 .btn-primary:hover {
-  opacity: 0.92;
+  background: #1f5598;
 }
 
 .btn-primary:active {
@@ -299,7 +300,7 @@ input, select, textarea {
   gap: var(--space-2);
   padding: var(--space-4) var(--space-8);
   background: transparent;
-  border: 1px solid rgba(65, 71, 84, 0.3);
+  border: 1px solid var(--outline-variant);
   color: white;
   font-family: var(--font-headline);
   font-weight: 700;
@@ -307,12 +308,13 @@ input, select, textarea {
   letter-spacing: 0.08em;
   text-transform: uppercase;
   transition: background var(--duration-fast),
-              color var(--duration-fast),
+              border-color var(--duration-fast),
               transform var(--duration-fast) var(--ease-out);
 }
 
 .btn-secondary:hover {
-  background: rgba(255, 255, 255, 0.05);
+  border-color: var(--primary);
+  background: rgba(26, 75, 140, 0.1);
 }
 
 .btn-secondary:active {
@@ -324,8 +326,8 @@ input, select, textarea {
   align-items: center;
   justify-content: center;
   padding: var(--space-4) var(--space-10);
-  background: var(--on-primary);
-  color: var(--primary);
+  background: var(--primary-container);
+  color: white;
   font-family: var(--font-headline);
   font-weight: 700;
   font-size: 1.125rem;
@@ -334,7 +336,7 @@ input, select, textarea {
 }
 
 .btn-cta-inverted:hover {
-  background: rgba(0, 46, 104, 0.9);
+  background: #1f5598;
 }
 
 /* --- Layout Utilities --- */

@@ -18,8 +18,8 @@ export default function Footer() {
           <h4 className={styles['footer__column-title']}>Compétences</h4>
           <Link href="/processus" className={styles.footer__link}>Processus</Link>
           <Link href="/expertise" className={styles.footer__link}>Expertise</Link>
-          <Link href="/equipements" className={styles.footer__link}>Équipements</Link>
-          <Link href="/references" className={styles.footer__link}>Spécifications</Link>
+          <Link href="/equipements" className={styles.footer__link}>Banc d'essai</Link>
+          <Link href="/references" className={styles.footer__link}>Références</Link>
         </div>
 
         {/* Entreprise */}
