@@ -61,14 +61,14 @@ export default function Navbar() {
 
       {/* Mobile menu */}
       <div
-        className={`${styles.navbar__mobile_overlay} ${mobileOpen ? styles.open : ''}`}
+        className={`${styles['navbar__mobile-overlay']} ${mobileOpen ? styles.open : ''}`}
         style={{ display: mobileOpen ? 'flex' : 'none' }}
       >
         {NAV_ITEMS.map((item) => (
           <Link
             key={item.href}
             href={item.href}
-            className={`${styles.navbar__mobile_link} ${
+            className={`${styles['navbar__mobile-link']} ${
               pathname === item.href ? styles['navbar__mobile-link--active'] : ''
             }`}
             onClick={() => setMobileOpen(false)}

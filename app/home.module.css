@@ -288,7 +288,7 @@
   }
 
   .process__image {
-    height: 400px;
+    height: 300px;
   }
 
   .datahud__grid {
@@ -298,37 +298,103 @@
   .datahud__item:nth-child(2) {
     border-right: none;
   }
+
+  .process {
+    padding: var(--space-16) var(--space-8);
+  }
 }
 
 @media (max-width: 640px) {
+  .hero {
+    min-height: 40vh;
+    padding-top: 70px;
+  }
+
+  .hero__title {
+    font-size: 1.5rem;
+    margin-bottom: var(--space-3);
+  }
+
+  .hero__subtitle {
+    font-size: 0.8125rem;
+    margin-bottom: var(--space-4);
+  }
+
+  .hero__cta {
+    padding: var(--space-2) var(--space-6);
+    font-size: 0.75rem;
+  }
+
+  .services {
+    padding: var(--space-8) var(--space-4);
+  }
+
+  .services__header {
+    margin-bottom: var(--space-6);
+  }
+
+  .services__title {
+    font-size: 1.25rem;
+  }
+
   .services__grid {
     grid-template-columns: 1fr;
+    gap: var(--space-4);
+  }
+
+  .service-card {
+    padding: var(--space-6);
+  }
+
+  .process {
+    padding: var(--space-12) var(--space-4);
+  }
+
+  .process__content {
+    padding: var(--space-8);
   }
 
   .process__steps {
     grid-template-columns: 1fr;
+    gap: var(--space-4);
+  }
+
+  .process__step {
+    padding: var(--space-6);
+  }
+
+  .process__image-overlay {
+    padding: var(--space-6);
+  }
+
+  .datahud {
+    padding: var(--space-12) var(--space-4);
   }
 
   .datahud__grid {
-    grid-template-columns: 1fr;
+    grid-template-columns: 1fr 1fr;
   }
 
   .datahud__item {
+    padding: var(--space-6);
     border-right: none;
     border-bottom: 1px solid rgba(65, 71, 84, 0.2);
   }
 
-  .datahud__item:last-child {
+  .datahud__item:nth-child(even) {
+    border-left: 1px solid rgba(65, 71, 84, 0.2);
+  }
+
+  .datahud__item:nth-last-child(-n+2) {
     border-bottom: none;
   }
 
-  .hero {
-    min-height: 80vh;
+  .cta {
+    padding: var(--space-16) var(--space-4);
   }
 
-  .services,
-  .process,
-  .cta {
-    padding: var(--space-20) var(--space-6);
+  .cta__title {
+    font-size: 1.5rem;
+    margin-bottom: var(--space-8);
   }
 }
