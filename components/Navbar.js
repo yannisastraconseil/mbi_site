@@ -10,7 +10,6 @@ const NAV_ITEMS = [
   { href: '/expertise',   label: 'Expertise' },
   { href: '/equipements', label: 'Équipements' },
   { href: '/references',  label: 'Spécifications' },
-  { href: '/actualites',  label: 'Actualités' },
   { href: '/entreprise',  label: 'À Propos' },
 ];
 
