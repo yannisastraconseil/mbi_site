@@ -403,12 +403,24 @@ input, select, textarea {
   white-space: nowrap;
 }
 
-/* --- Responsive Breakpoints Reference ---
+/* --- Responsive Breakpoints ---
    Mobile:  < 640px
    Tablet:  640px - 1024px
    Desktop: 1024px - 1440px
    Wide:    > 1440px
    ---------------------------------------- */
+
+/* Responsive grid utilities */
+.grid-2 { display: grid; grid-template-columns: repeat(2, 1fr); gap: var(--space-8); }
+.grid-3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: var(--space-8); }
+.grid-4 { display: grid; grid-template-columns: repeat(4, 1fr); gap: var(--space-8); }
+.grid-7-5 { display: grid; grid-template-columns: 7fr 5fr; gap: var(--space-12); }
+.grid-5-7 { display: grid; grid-template-columns: 5fr 7fr; gap: var(--space-12); }
+
+@media (max-width: 1024px) {
+  .grid-4 { grid-template-columns: repeat(2, 1fr); }
+  .grid-7-5, .grid-5-7 { grid-template-columns: 1fr; }
+}
 
 @media (max-width: 768px) {
   .container {
@@ -418,4 +430,22 @@ input, select, textarea {
   .section {
     padding: var(--space-20) var(--space-6);
   }
+
+  .grid-2, .grid-3 { grid-template-columns: 1fr; }
+
+  /* Reduce hero/section top padding on mobile */
+  section[style*="padding: var(--space-32)"] {
+    padding-top: var(--space-20) !important;
+  }
 }
+
+@media (max-width: 640px) {
+  .grid-4 { grid-template-columns: 1fr; }
+
+  .btn-primary, .btn-secondary, .btn-cta-inverted {
+    width: 100%;
+    text-align: center;
+    justify-content: center;
+  }
+}
+
