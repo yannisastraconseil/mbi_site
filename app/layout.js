@@ -2,6 +2,7 @@ import './globals.css';
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
 import ScrollReveal from '@/components/ScrollReveal';
+import CookieBanner from '@/components/CookieBanner';
 
 export const metadata = {
   title: {
@@ -24,7 +25,9 @@ export const metadata = {
     description: 'Rénovation de précision et solutions moteur haute performance.',
     type: 'website',
     locale: 'fr_FR',
+    url: 'https://m-b-i.online',
   },
+  metadataBase: new URL('https://m-b-i.online'),
 };
 
 export default function RootLayout({ children }) {
@@ -36,6 +39,7 @@ export default function RootLayout({ children }) {
           {children}
         </main>
         <Footer />
+        <CookieBanner />
         <ScrollReveal />
       </body>
     </html>
